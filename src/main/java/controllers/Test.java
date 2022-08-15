@@ -9,4 +9,9 @@ public class Test {
 		System.out.println("Welcome to Registration Page");
 		return "registration";
 	}
+	@RequestMapping("/login")
+	public String login() {
+		System.out.println("Welcome to Login Page");
+		return "login";
+	}
 }

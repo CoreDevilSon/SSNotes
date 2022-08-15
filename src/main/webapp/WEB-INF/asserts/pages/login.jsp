@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
-    <title>Register Page</title>
+    <title>Sign in Page</title>
 
     <style>
         * {
@@ -17,14 +17,14 @@
             padding: 0;
             box-sizing: border-box;
         }
-        body {
+		body {
             background-color: rgb(0, 76, 144, 0.8);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: 'Roboto', sans-serif;
-        }
+        }        
         h1 {
             padding-top: 40px ;
             padding-bottom: 40px;
@@ -40,12 +40,10 @@
             width: 30%;
             border-radius: 3px;
         }
-
-    	.form-inner-div {
+		.form-inner-div {
         	margin-bottom: 1.5em;
     	}
-
-    	input {
+		input {
         	width:100%;
         	margin-top: 7px;
         	padding: 12px;
@@ -54,35 +52,28 @@
         	border: 1px solid rgb(208, 208, 208);
         	background-color: rgb(240, 240, 240);
     	}
-
-    	#signup {
+    	#signin {
         	background-color: rgb(46, 146, 22);
         	color: white;
     	}
 
     	p {
+        	padding: 40px;
+        	background-color: #fff;
         	text-align: center;
-        	margin-top: 5px;
-        	font-weight:300;
-    	} 
+        	margin-top: 35px;
+        	width: 30%;
+        	border-radius: 3px;
+        	font-weight: 300;
+    	}
     	label {
     		font-weight:500;
     	}
     </style>
 </head>
 <body>
-    <h1>Register your account</h1>
+    <h1>Sign in to your account</h1>
     <form>
-        <div class="form-inner-div">
-            <label for="name">Name </label><br>
-            <input type="text" name="name" id="name" placeholder="Enter your name.." required>
-          </div>
-
-          <div class="form-inner-div">
-            <label for="username">Username </label><br>
-            <input type="text" name="username" id="username" placeholder="Enter a username.." required>
-          </div>
-
           <div class="form-inner-div">
             <label for="email">Email Address </label><br>
             <input type="email" name="email" id="email" placeholder="Enter your Email Address.." required>
@@ -93,21 +84,16 @@
             <input type="password" name="password" id="password" placeholder="Enter your Password.." required>
           </div>
 
-          <div class="form-inner-div">
-            <label for="confirm">Confirm Password </label><br>
-            <input type="password" name="confirm" id="confirm" placeholder="Enter your Password again.." required>
-          </div>
 
           <div class="form-inner-div">
-            <input type="submit" value="Sign Up" id="signup">
-          </div>
-
-          <p>
-            Already have an account? <a href="login">Sign in</a>.
-          </p>
-            
+            <input type="submit" value="Sign In" id="signin">
+          </div>  
           
     </form>
+
+    <p>
+        New user? <a href="register">Create an account</a>.
+    </p>
     
 </body>
 </html>
