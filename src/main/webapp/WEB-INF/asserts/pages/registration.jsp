@@ -72,7 +72,7 @@
 </head>
 <body>
     <h1>Register your account</h1>
-    <form>
+    <form action="./registerprocess" method="POST">
         <div class="form-inner-div">
             <label for="name">Name </label><br>
             <input type="text" name="name" id="name" placeholder="Enter your name.." required>
@@ -103,7 +103,7 @@
           </div>
 
           <p>
-            Already have an account? <a href="login">Sign in</a>.
+            Already have an account? <a href="./login">Sign in</a>.
           </p>
             
           

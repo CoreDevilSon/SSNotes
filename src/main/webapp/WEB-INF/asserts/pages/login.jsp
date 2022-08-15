@@ -73,7 +73,7 @@
 </head>
 <body>
     <h1>Sign in to your account</h1>
-    <form>
+    <form action="./loginprocess" method="POST">
           <div class="form-inner-div">
             <label for="email">Email Address </label><br>
             <input type="email" name="email" id="email" placeholder="Enter your Email Address.." required>
@@ -92,7 +92,7 @@
     </form>
 
     <p>
-        New user? <a href="register">Create an account</a>.
+        New user? <a href="./register">Create an account</a>.
     </p>
     
 </body>
