@@ -72,25 +72,25 @@
 </head>
 <body>
     <h1>Register your account</h1>
-    <form action="./registerprocess" method="POST">
+    <form action="registerprocess" method="POST">
         <div class="form-inner-div">
             <label for="name">Name </label><br>
-            <input type="text" name="name" id="name" placeholder="Enter your name.." required>
+            <input type="text" name="uName" id="name" placeholder="Enter your name.." required>
           </div>
 
           <div class="form-inner-div">
             <label for="username">Username </label><br>
-            <input type="text" name="username" id="username" placeholder="Enter a username.." required>
+            <input type="text" name="uUserName" id="username" placeholder="Enter a username.." required>
           </div>
 
           <div class="form-inner-div">
             <label for="email">Email Address </label><br>
-            <input type="email" name="email" id="email" placeholder="Enter your Email Address.." required>
+            <input type="email" name="uEmail" id="email" placeholder="Enter your Email Address.." required>
           </div>
 
           <div class="form-inner-div">
             <label for="password">Password </label><br>
-            <input type="password" name="password" id="password" placeholder="Enter your Password.." required>
+            <input type="password" name="uPassword" id="password" placeholder="Enter your Password.." required>
           </div>
 
           <div class="form-inner-div">
