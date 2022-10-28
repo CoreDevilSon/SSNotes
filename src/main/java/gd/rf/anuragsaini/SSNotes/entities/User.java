@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 @Entity
 public class User {
@@ -19,6 +20,8 @@ public class User {
 	String uUserName;
 	String uEmail;
 	String uPassword;
+	
+	@Transient
 	String uPasswordConfirm;
 
 	@Temporal(TemporalType.DATE)
