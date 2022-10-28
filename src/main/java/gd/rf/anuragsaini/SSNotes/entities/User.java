@@ -19,7 +19,8 @@ public class User {
 	String uUserName;
 	String uEmail;
 	String uPassword;
-	
+	String uPasswordConfirm;
+
 	@Temporal(TemporalType.DATE)
 	Date uJoinDate;
 	
@@ -64,6 +65,14 @@ public class User {
 
 	public void setuPassword(String uPassword) {
 		this.uPassword = uPassword;
+	}
+	
+	public String getuPasswordConfirm() {
+		return uPasswordConfirm;
+	}
+
+	public void setuPasswordConfirm(String uPasswordConfirm) {
+		this.uPasswordConfirm = uPasswordConfirm;
 	}
 
 	public Date getuJoinDate() {

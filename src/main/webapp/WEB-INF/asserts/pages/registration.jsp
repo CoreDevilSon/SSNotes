@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,30 +73,31 @@
 </head>
 <body>
     <h1>Register your account</h1>
+    <h4>${msg}</h4><br>
     <form action="registerprocess" method="POST">
         <div class="form-inner-div">
             <label for="name">Name </label><br>
-            <input type="text" name="uName" id="name" placeholder="Enter your name.." required>
+            <input type="text" name="uName" id="name" placeholder="Enter your name..">
           </div>
 
           <div class="form-inner-div">
             <label for="username">Username </label><br>
-            <input type="text" name="uUserName" id="username" placeholder="Enter a username.." required>
+            <input type="text" name="uUserName" id="username" placeholder="Enter a username..">
           </div>
 
           <div class="form-inner-div">
             <label for="email">Email Address </label><br>
-            <input type="email" name="uEmail" id="email" placeholder="Enter your Email Address.." required>
+            <input type="email" name="uEmail" id="email" placeholder="Enter your Email Address..">
           </div>
 
           <div class="form-inner-div">
             <label for="password">Password </label><br>
-            <input type="password" name="uPassword" id="password" placeholder="Enter your Password.." required>
+            <input type="password" name="uPassword" id="password" placeholder="Enter your Password..">
           </div>
 
           <div class="form-inner-div">
             <label for="confirm">Confirm Password </label><br>
-            <input type="password" name="confirm" id="confirm" placeholder="Enter your Password again.." required>
+            <input type="password" name="uPasswordConfirm" id="confirm" placeholder="Enter your Password again..">
           </div>
 
           <div class="form-inner-div">
