@@ -32,6 +32,11 @@
             color: #fff;
             font-weight: 300;
         }
+        .message-area h4 {
+        	color:red;
+        	padding-bottom: 6px;
+        	text-align: center;
+        }
         form {
             background-color: rgb(255, 255, 255);
             display: flex;
@@ -73,21 +78,23 @@
 </head>
 <body>
     <h1>Register your account</h1>
-    <h4>${msg}</h4><br>
     <form action="registerprocess" method="POST">
         <div class="form-inner-div">
+        <div class="message-area">
+    		<h4>${msg}</h4>
+    	</div>
             <label for="name">Name </label><br>
-            <input type="text" name="uName" id="name" placeholder="Enter your name..">
+            <input type="text" name="uName" id="name" placeholder="Enter your name.." value="${user.uName}">
           </div>
 
           <div class="form-inner-div">
             <label for="username">Username </label><br>
-            <input type="text" name="uUserName" id="username" placeholder="Enter a username..">
+            <input type="text" name="uUserName" id="username" placeholder="Enter a username.." value="${user.uUserName}">
           </div>
 
           <div class="form-inner-div">
             <label for="email">Email Address </label><br>
-            <input type="email" name="uEmail" id="email" placeholder="Enter your Email Address..">
+            <input type="email" name="uEmail" id="email" placeholder="Enter your Email Address.." value="${user.uEmail}">
           </div>
 
           <div class="form-inner-div">

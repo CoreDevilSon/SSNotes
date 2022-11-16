@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,6 +31,11 @@
             padding-bottom: 40px;
             color: #fff;
             font-weight: 300;
+        }
+        .message-area h4 {
+        	color:red;
+        	padding-bottom: 6px;
+        	text-align: center;
         }
         form {
             background-color: rgb(255, 255, 255);
@@ -75,6 +81,9 @@
     <h1>Sign in to your account</h1>
     <form action="./loginprocess" method="POST">
           <div class="form-inner-div">
+          	<div class="message-area">
+    			<h4>${msg}</h4>
+    		</div>
             <label for="email">Email Address </label><br>
             <input type="email" name="email" id="email" placeholder="Enter your Email Address.." required>
           </div>
