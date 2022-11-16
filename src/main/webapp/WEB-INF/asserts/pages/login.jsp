@@ -85,12 +85,12 @@
     			<h4>${msg}</h4>
     		</div>
             <label for="email">Email Address </label><br>
-            <input type="email" name="email" id="email" placeholder="Enter your Email Address.." required>
+            <input type="email" name="email" id="email" placeholder="Enter your Email Address..">
           </div>
 
           <div class="form-inner-div">
             <label for="password">Password </label><br>
-            <input type="password" name="password" id="password" placeholder="Enter your Password.." required>
+            <input type="password" name="password" id="password" placeholder="Enter your Password..">
           </div>
 
 

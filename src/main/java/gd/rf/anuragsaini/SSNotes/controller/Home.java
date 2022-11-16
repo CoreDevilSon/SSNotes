@@ -35,9 +35,14 @@ public class Home {
 		return new ModelAndView("registration");
 	}
 	@RequestMapping("/login")
-	public String login() {
-		System.out.println("Welcome to Login Page");
-		return "login";
+	public ModelAndView login(@ModelAttribute("fields") String fieldsBlank, @ModelAttribute("password") String passwordMatch) {
+		if(fieldsBlank.equalsIgnoreCase("isBlank")) {
+			System.out.println("[Redirect]:To Login Page due to blank Fields");
+			return new ModelAndView("login", "msg", "Fields can't be left empty");
+		} else {
+			System.out.println("Welcome to Login Page");
+		}
+		return new ModelAndView("login");
 	}
 	@RequestMapping(path="/registerprocess", method = RequestMethod.POST)
 	public ModelAndView registerFormProcess(@ModelAttribute User user, RedirectAttributes attribute) {
@@ -55,12 +60,15 @@ public class Home {
 		this.userService.createUser(user);
 		return new ModelAndView("rsuccess", "msg", "Account Registered Successfully!");
 	}
-	@RequestMapping(path="/loginprocess")
-	public String loginFormProcess(@RequestParam("email") String userEmailInput, @RequestParam("password") String userPasswordInput, RedirectAttributes attributes){
+	@RequestMapping(path="/loginprocess", method=RequestMethod.POST)
+	public ModelAndView loginFormProcess(@RequestParam("email") String userEmailInput, @RequestParam("password") String userPasswordInput, RedirectAttributes attributes){
 		System.out.println("Login Process Executing");
+		if(userEmailInput.isBlank() || userPasswordInput.isBlank()) {
+			attributes.addFlashAttribute("fields", "isBlank");
+			return new ModelAndView("redirect:/login");
+		}
 		System.out.println("Email Entered:"+userEmailInput);
 		System.out.println("Password Entered:"+userPasswordInput);
-		attributes.addFlashAttribute("fields", "isBlank");
-		return "login";
+		return new ModelAndView("/login");
 	}
 }
