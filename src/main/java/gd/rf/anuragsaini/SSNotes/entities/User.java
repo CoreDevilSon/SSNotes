@@ -2,6 +2,7 @@ package gd.rf.anuragsaini.SSNotes.entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,12 +13,14 @@ import javax.persistence.Transient;
 
 @Entity
 public class User {
-	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	int uId;
 	
 	String uName;
 	String uUserName;
+	
+	@Id
+	@Column(unique = true, nullable = false)
 	String uEmail;
 	String uPassword;
 	

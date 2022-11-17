@@ -14,7 +14,13 @@ public class UserService {
 	private UserDaoImpl userDao;
 	
 	@Transactional
-	public int createUser(User user) {
-		return this.userDao.saveUser(user);
+	public void createUser(User user) {
+		 this.userDao.saveUser(user);
+	}
+	public User findUserInDatabase(String uEmail) {
+		return this.userDao.findUserInDatabase(uEmail);
+	}
+	public boolean validatePasswordInDatabase(User user, String uPassword) {
+		return this.userDao.verifyUserPassword(user, uPassword);
 	}
 }

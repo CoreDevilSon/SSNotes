@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import gd.rf.anuragsaini.SSNotes.dao.UserDao;
 import gd.rf.anuragsaini.SSNotes.entities.User;
 import gd.rf.anuragsaini.SSNotes.service.UserService;
 
@@ -61,11 +62,23 @@ public class Home {
 		return new ModelAndView("rsuccess", "msg", "Account Registered Successfully!");
 	}
 	@RequestMapping(path="/loginprocess", method=RequestMethod.POST)
-	public ModelAndView loginFormProcess(@RequestParam("email") String userEmailInput, @RequestParam("password") String userPasswordInput, RedirectAttributes attributes){
+	public ModelAndView loginFormProcess(@RequestParam("uEmail") String userEmailInput, @RequestParam("uPassword") String userPasswordInput, RedirectAttributes attributes){
 		System.out.println("Login Process Executing");
 		if(userEmailInput.isBlank() || userPasswordInput.isBlank()) {
 			attributes.addFlashAttribute("fields", "isBlank");
 			return new ModelAndView("redirect:/login");
+		} else {
+			User user = userService.findUserInDatabase(userEmailInput);
+			if(user != null) {
+				System.out.println("[Email]: Found");
+				if(userService.validatePasswordInDatabase(user, userPasswordInput)) {
+					System.out.println("[Password]: Match");
+				} else {
+					System.out.println("[Password]: Not Match");
+				}
+			} else {
+				System.out.println("[Email]: Not Found");
+			}
 		}
 		System.out.println("Email Entered:"+userEmailInput);
 		System.out.println("Password Entered:"+userPasswordInput);

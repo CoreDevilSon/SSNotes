@@ -34,7 +34,7 @@
         }
         .message-area h4 {
         	color:red;
-        	padding-bottom: 6px;
+        	margin-bottom: 20px;
         	text-align: center;
         }
         form {

@@ -34,7 +34,7 @@
         }
         .message-area h4 {
         	color:red;
-        	padding-bottom: 6px;
+        	margin-bottom: 20px;
         	text-align: center;
         }
         form {
@@ -85,12 +85,12 @@
     			<h4>${msg}</h4>
     		</div>
             <label for="email">Email Address </label><br>
-            <input type="email" name="email" id="email" placeholder="Enter your Email Address..">
+            <input type="email" name="uEmail" id="email" placeholder="Enter your Email Address..">
           </div>
 
           <div class="form-inner-div">
             <label for="password">Password </label><br>
-            <input type="password" name="password" id="password" placeholder="Enter your Password..">
+            <input type="password" name="uPassword" id="password" placeholder="Enter your Password..">
           </div>
 
 

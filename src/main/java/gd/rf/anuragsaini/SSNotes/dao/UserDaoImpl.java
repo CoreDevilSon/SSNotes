@@ -13,9 +13,21 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	private HibernateTemplate hibernateTemplate;
 	
-	public int saveUser(User user) {
-		int id = (Integer)this.hibernateTemplate.save(user);
-		return id;
+	public void saveUser(User user) {
+		this.hibernateTemplate.save(user);
+	}
+	public User findUserInDatabase(String uEmailInput) {
+		User user = this.hibernateTemplate.get(User.class, uEmailInput);
+		if(user != null) {
+			return user;
+		}
+		return null;
+	}
+	public boolean verifyUserPassword(User userModel, String uPasswordInput) {
+		if(userModel.getuPassword().equalsIgnoreCase(uPasswordInput)) {
+			return true;
+		}
+		return false;
 	}
 
 }
