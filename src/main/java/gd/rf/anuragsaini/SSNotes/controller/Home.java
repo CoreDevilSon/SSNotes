@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import gd.rf.anuragsaini.SSNotes.dao.UserDao;
 import gd.rf.anuragsaini.SSNotes.entities.User;
 import gd.rf.anuragsaini.SSNotes.service.UserService;
 
@@ -73,6 +72,7 @@ public class Home {
 				System.out.println("[Email]: Found");
 				if(userService.validatePasswordInDatabase(user, userPasswordInput)) {
 					System.out.println("[Password]: Match");
+					return new ModelAndView("redirect:/dashboard");
 				} else {
 					System.out.println("[Password]: Not Match");
 				}
@@ -83,5 +83,9 @@ public class Home {
 		System.out.println("Email Entered:"+userEmailInput);
 		System.out.println("Password Entered:"+userPasswordInput);
 		return new ModelAndView("/login");
+	}
+	@RequestMapping(path="/dashboard") 
+	public String openDashboard() {
+		return "home";
 	}
 }

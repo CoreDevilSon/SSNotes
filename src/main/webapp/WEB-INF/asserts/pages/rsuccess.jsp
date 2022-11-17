@@ -75,7 +75,7 @@
 <body>
     <h1>${msg }</h1>
     <p>
-        New user? <a href="./register">Create an account</a>.
+        Already have an acoount? <a href="./login">Sign in</a>.
     </p>
     
 </body>
