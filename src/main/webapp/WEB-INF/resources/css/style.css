@@ -1,0 +1,190 @@
+@charset "ISO-8859-1";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(0, 76, 144, 0.8);
+    align-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+    margin: auto;
+    /* border: 2px solid red; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    width: 70%;
+
+}
+
+.container {
+    /* border: 2px solid black; */
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+.padding-zero {
+    /* border: 2px solid black; */
+    padding-top: 0px;
+    padding-bottom: 0px;
+    text-align: left;
+}
+.header {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+    border-radius: 30px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.header-left {
+    /* background-color: orange; */
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.header-right {
+    /* background-color: aqua; */
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: right;
+}
+
+.header-right input {
+    margin-top: 6px;
+    outline: none;
+    border-radius: 3px;
+    color: white;
+    border: 1px solid orangered;
+    background-color: rgb(0, 0, 0);
+    padding: 0px 10px;
+}
+.header .active {
+    text-decoration: underline;
+    color: rgb(0, 76, 144, 0.8);
+}
+
+.container-flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container .inner-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    width: 50%;
+    margin: auto;
+    background-color: white;
+    overflow-y: auto;
+
+}
+
+.container .inner-container h4 {
+    color: red;
+    text-align: center;
+}
+
+.container h1 {
+    color: #fff;
+    font-weight: 300;
+    text-align: center;
+}
+
+.inner-container p {
+    text-align: center;
+    font-weight: 300;
+}
+
+.inner-container label {
+    font-weight: 500;
+}
+
+.inner-container-top-border-radius {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.inner-container-bottom-border-radius {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.inner-container input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid rgb(208, 208, 208);
+    background-color: rgb(240, 240, 240);
+}
+.container input {
+    width: 100%;
+    margin-top: 6px;
+    padding: 12px;
+    outline: none;
+    border-radius: 3px;
+    border: 1px solid rgb(208, 208, 208);
+    background-color: rgb(240, 240, 240);
+}
+
+.container #delete {
+    background-color: orangered;
+    color: white;
+}
+
+.inner-container #signin,
+#signup, .container #edit {
+    background-color: rgb(46, 146, 22);
+    color: white;
+}
+
+.inner-container a {
+    color: rgb(0, 76, 144, 1);
+}
+
+.card {
+    /* border: 3px solid green ; */
+    width: 30%;
+}
+.card-top {
+    background-color: white;
+    border-radius: 15px;
+}
+.card-top img {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+.card-desc {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px 30px;
+    position: relative;
+    top:-15px;
+}
+
+.card-desc h2 {
+    color: black;
+    font-weight: 500;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.card-desc p {
+    color: black;
+    font-weight: 300;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

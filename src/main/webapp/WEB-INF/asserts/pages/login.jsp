@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
     <%@ page isELIgnored="false" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
         <!DOCTYPE html>
         <html lang="en">
 
@@ -11,98 +12,8 @@
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
             <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap"
                 rel="stylesheet">
-            <title>Sign in Page</title>
-
-            <style>
-                * {
-                    margin: 0;
-                    padding: 0;
-                    box-sizing: border-box;
-                }
-
-                body {
-                    background-color: rgb(0, 76, 144, 0.8);
-                    align-items: center;
-                    font-family: 'Roboto', sans-serif;
-                }
-
-                .main-container {
-                    margin: auto;
-                    /* border: 2px solid red; */
-                    padding-top: 0px;
-                    padding-bottom: 0px;
-                    width: 70%;
-
-                }
-
-                .container {
-                    /* border: 2px solid black; */
-                    padding-top: 20px;
-                    padding-bottom: 20px;
-                    text-align: left;
-                }
-
-                .container .inner-container {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 20px 40px;
-                    width: 50%;
-                    margin: auto;
-                    background-color: white;
-                    overflow-y: auto;
-
-                }
-
-                .container .inner-container h4 {
-                    color: red;
-                    text-align: center;
-                }
-
-                .container h1 {
-                    color: #fff;
-                    font-weight: 300;
-                    text-align: center;
-                }
-
-                .inner-container p {
-                    text-align: center;
-                    font-weight: 300;
-                }
-
-                .inner-container label {
-                    font-weight: 500;
-                }
-
-                .inner-container-top-border-radius {
-                    border-top-left-radius: 5px;
-                    border-top-right-radius: 5px;
-                }
-
-                .inner-container-bottom-border-radius {
-                    border-bottom-left-radius: 5px;
-                    border-bottom-right-radius: 5px;
-                }
-
-                .inner-container input {
-                    width: 100%;
-                    margin-top: 6px;
-                    padding: 12px;
-                    outline: none;
-                    border-radius: 3px;
-                    border: 1px solid rgb(208, 208, 208);
-                    background-color: rgb(240, 240, 240);
-                }
-
-                .inner-container #signin,
-                #signup {
-                    background-color: rgb(46, 146, 22);
-                    color: white;
-                }
-
-                .inner-container a {
-                    color: rgb(0, 76, 144, 1);
-                }
-            </style>
+           <link href="<c:url value="/resources/css/style.css" />" rel="stylesheet">
+           <title>Sign in Page</title>
         </head>
 
         <body>
