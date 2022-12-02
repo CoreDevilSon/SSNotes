@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,33 +11,22 @@ import javax.persistence.Transient;
 
 @Entity
 public class User {
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	int uId;
-	
-	String uName;
-	String uUserName;
+	private String uName;
+	private String uUserName;
 	
 	@Id
 	@Column(unique = true, nullable = false)
-	String uEmail;
-	String uPassword;
+	private String uEmail;
+	private String uPassword;
 	
 	@Transient
-	String uPasswordConfirm;
+	private String uPasswordConfirm;
 
 	@Temporal(TemporalType.DATE)
-	Date uJoinDate;
+	private Date uJoinDate;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	Date uLastActive;
-
-	public int getuId() {
-		return uId;
-	}
-
-	public void setuId(int uId) {
-		this.uId = uId;
-	}
+	private Date uLastActive;
 
 	public String getuName() {
 		return uName;
@@ -99,7 +86,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [uId=" + uId + ", uName=" + uName + ", uUserName=" + uUserName + ", uEmail=" + uEmail
+		return "User [uName=" + uName + ", uUserName=" + uUserName + ", uEmail=" + uEmail
 				+ ", uPassword=" + uPassword + ", uJoinDate=" + uJoinDate + ", uLastActive=" + uLastActive + "]";
 	}
 	

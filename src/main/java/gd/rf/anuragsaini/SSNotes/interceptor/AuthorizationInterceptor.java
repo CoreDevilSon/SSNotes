@@ -5,15 +5,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 
-public class AuthenticateInterceptor implements HandlerInterceptor {
+public class AuthorizationInterceptor implements HandlerInterceptor {
 
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		if(request.getSession().getAttribute("userInSession") != null) {
+			String destination = request.getRequestURI();
 			response.sendRedirect("./dashboard");
-			System.out.println("Redirect from PRE HANDLER");
+			System.out.println("[AuthorizationInterceptor Redirect]: From "+destination+" to ./dashboard");
 			return false;
 		}
-		System.out.println("NO Redirect from PRE HANDLER");
+		System.out.println("[AuthorizationInterceptor Redirect]: NO Redirect");
 		return true;
 	}
 	

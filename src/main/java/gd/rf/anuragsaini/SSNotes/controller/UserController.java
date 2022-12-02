@@ -18,7 +18,7 @@ import gd.rf.anuragsaini.SSNotes.entities.User;
 import gd.rf.anuragsaini.SSNotes.service.UserService;
 
 @Controller
-public class Home {
+public class UserController {
 	
 	@Autowired
 	private UserService userService;
@@ -42,6 +42,7 @@ public class Home {
 		}
 		return new ModelAndView("registration");
 	}
+	
 	@RequestMapping("/login")
 	public ModelAndView login(@ModelAttribute("fields") String fieldsBlank, @ModelAttribute("password") String passwordMatch, @ModelAttribute("details") String detailsCombination) {
 		if(fieldsBlank.equalsIgnoreCase("isBlank")) {
@@ -56,7 +57,8 @@ public class Home {
 		}
 		return new ModelAndView("login");
 	}
-	@RequestMapping(path="/registerprocess", method = RequestMethod.POST)
+	
+	@RequestMapping(path="/registerprocess", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView registerFormProcess(@ModelAttribute User user, BindingResult result, RedirectAttributes attribute, HttpSession session) {
 		if(result.hasErrors()) {
 			attribute.addFlashAttribute("fields", "bindingError");
@@ -82,7 +84,8 @@ public class Home {
 			}
 		}
 	}
-	@RequestMapping(path="/loginprocess", method=RequestMethod.POST)
+	
+	@RequestMapping(path="/loginprocess", method= {RequestMethod.POST, RequestMethod.GET})
 	public ModelAndView loginFormProcess(@RequestParam("uEmail") String userEmailInput, @RequestParam("uPassword") String userPasswordInput, RedirectAttributes attributes, HttpSession session){
 		System.out.println("Login Process Executing");
 		if(userEmailInput.isBlank() || userPasswordInput.isBlank()) {
@@ -94,7 +97,7 @@ public class Home {
 				System.out.println("[Email]: Found");
 				if(userService.validatePasswordInDatabase(user, userPasswordInput)) {
 					System.out.println("[Password]: Match");
-					session.setMaxInactiveInterval(100);
+//					session.setMaxInactiveInterval(100);
 					session.setAttribute("userInSession", user);
 					return new ModelAndView("redirect:/dashboard");
 				} else {
@@ -109,14 +112,18 @@ public class Home {
 			}
 		}
 	}
+	
 	@RequestMapping(path="/dashboard") 
-	public ModelAndView openDashboard(HttpSession session) {
+	public ModelAndView openDashboard(HttpSession session, @ModelAttribute("postUserSession") String postUserExist, @ModelAttribute("noOwner") String noPermission) {
+		if(postUserExist.equalsIgnoreCase("notFound")) return new ModelAndView("home", "msg", "Post Not Found!");
+		if(noPermission.equalsIgnoreCase("true")) return new ModelAndView("home", "msg", "[Activity:] Action can't be Performed");
 		if(session.getAttribute("userInSession") == null) {
 			System.out.println("[Redirect]: To Login Page As You are not logged In");
 			return new ModelAndView("redirect:/login");
 		}
 		else return new ModelAndView("home");
 	}
+
 	@RequestMapping(path="/completedRegistration") 
 	public ModelAndView doneRegistration(HttpSession session) {
 		if(session.getAttribute("justRegistered") == null) return new ModelAndView("redirect:/register");
@@ -126,5 +133,11 @@ public class Home {
 		}
 		else return new ModelAndView("redirect:/register");
 		
+	}
+	@RequestMapping(path="/logout") 
+	public ModelAndView logout(HttpSession session) {
+		System.out.println("[Logout]: Execting");
+		session.invalidate();
+		return new ModelAndView("redirect:/dashboard");
 	}
 }

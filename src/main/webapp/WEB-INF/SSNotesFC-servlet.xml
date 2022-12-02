@@ -23,8 +23,26 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/login" />
 			<mvc:mapping path="/register" />
-			<bean class="gd.rf.anuragsaini.SSNotes.interceptor.AuthenticateInterceptor"/>
-			
+			<bean class="gd.rf.anuragsaini.SSNotes.interceptor.AuthorizationInterceptor"/>
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/dashboard"/>
+			<mvc:mapping path="/addpost"/>
+			<mvc:mapping path="/addpostprocess"/>
+			<bean class="gd.rf.anuragsaini.SSNotes.interceptor.DashboardInterceptor"></bean>
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/loginprocess"/>
+			<mvc:mapping path="/registerprocess"/>
+			<mvc:mapping path="/addpostprocess"/>
+			<bean class="gd.rf.anuragsaini.SSNotes.interceptor.GetRequestPostInterceptor"></bean>
+		</mvc:interceptor>
+		
+		<mvc:interceptor>
+			<mvc:mapping path="/dashboard"/>
+			<bean class="gd.rf.anuragsaini.SSNotes.interceptor.ShowPostInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
 	
@@ -50,6 +68,9 @@
 			<list>
 				<value>
 					gd.rf.anuragsaini.SSNotes.entities.User
+				</value>
+				<value>
+					gd.rf.anuragsaini.SSNotes.entities.Post
 				</value>
 			</list>
 		</property>
